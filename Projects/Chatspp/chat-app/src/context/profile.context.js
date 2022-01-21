@@ -1,7 +1,8 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+/* eslint-disable react/jsx-no-constructed-context-values */
+import React, { createContext, useState, useContext, useEffect } from 'react';
 import { auth, database } from '../mics/firebase';
 
-const ProfileCentext = createContext();
+const ProfileContext = createContext();
 
 export const ProfileProvider = ({ children }) => {
   const [profile, setProfile] = useState(null);
@@ -13,15 +14,16 @@ export const ProfileProvider = ({ children }) => {
     const authUnsub = auth.onAuthStateChanged(authObj => {
       if (authObj) {
         userRef = database.ref(`/profiles/${authObj.uid}`);
-
         userRef.on('value', snap => {
           const { name, createdAt } = snap.val();
+
           const data = {
             name,
             createdAt,
             uid: authObj.uid,
             email: authObj.email,
           };
+
           setProfile(data);
           setIsLoading(false);
         });
@@ -45,10 +47,10 @@ export const ProfileProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProfileCentext.Provider value={(isLoading, profile)}>
+    <ProfileContext.Provider value={{ isLoading, profile }}>
       {children}
-    </ProfileCentext.Provider>
+    </ProfileContext.Provider>
   );
 };
 
-export const useProfile = () => useContext(ProfileCentext);
+export const useProfile = () => useContext(ProfileContext);

@@ -1,6 +1,6 @@
 import React from 'react';
 import firebase from 'firebase/app';
-import { Container, Grid, Panel, Row, Col, Button, Icon, Alert } from 'rsuite';
+import { Container, Grid, Row, Panel, Col, Button, Icon, Alert } from 'rsuite';
 import { auth, database } from '../mics/firebase';
 
 const SignIn = () => {
@@ -17,7 +17,7 @@ const SignIn = () => {
 
       Alert.success('Signed in', 4000);
     } catch (err) {
-      Alert.error(err.nessage, 4000);
+      Alert.error(err.message, 4000);
     }
   };
 
@@ -36,17 +36,17 @@ const SignIn = () => {
           <Col xs={24} md={12} mdOffset={6}>
             <Panel>
               <div className="text-center">
-                <h2>Welcome To Chat</h2>
+                <h2>Welcome to Chat</h2>
                 <p>Progressive chat platform for neophytes</p>
               </div>
 
               <div className="mt-3">
                 <Button block color="blue" onClick={onFacebookSignIn}>
-                  <Icon icon="facebook" /> Continue With Facebook
+                  <Icon icon="facebook" /> Continue with Facebook
                 </Button>
 
                 <Button block color="green" onClick={onGoogleSignIn}>
-                  <Icon icon="google" /> Continue With Google
+                  <Icon icon="google" /> Continue with Google
                 </Button>
               </div>
             </Panel>
