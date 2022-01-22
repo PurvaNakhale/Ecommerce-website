@@ -1,8 +1,7 @@
-/* eslint-disable import/no-unresolved */
 import React, { useCallback } from 'react';
 import { Button, Icon, Drawer, Alert } from 'rsuite';
+import { useModalState, useMediaQuery } from '../../mics/custom-hooks';
 import Dashboard from '.';
-import { useMediaQuery, useModalState } from '../../mics/custom-hooks';
 import { auth } from '../../mics/firebase';
 
 const DashboardToggle = () => {

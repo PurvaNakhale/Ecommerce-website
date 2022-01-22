@@ -1,12 +1,11 @@
-import React, { useCallback, useState } from 'react';
-import { Alert, Icon, Input, InputGroup } from 'rsuite';
+import React, { useState, useCallback } from 'react';
+import { Input, InputGroup, Icon, Alert } from 'rsuite';
 
 const EditableInput = ({
   initialValue,
   onSave,
   label = null,
-  placeholder = 'write your value',
-  // eslint-disable-next-line no-unused-vars
+  placeholder = 'Write your value',
   emptyMsg = 'Input is empty',
   ...inputProps
 }) => {
@@ -45,7 +44,7 @@ const EditableInput = ({
           disabled={!isEditable}
           placeholder={placeholder}
           value={input}
-          onInputChange={onInputChange}
+          onChange={onInputChange}
         />
         <InputGroup.Button onClick={onEditClick}>
           <Icon icon={isEditable ? 'close' : 'edit2'} />
