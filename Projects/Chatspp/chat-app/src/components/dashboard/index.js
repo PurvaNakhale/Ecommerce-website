@@ -4,6 +4,7 @@ import { useProfile } from '../../context/profile.context';
 import EditableInput from '../EditableInput';
 import { database } from '../../mics/firebase';
 import ProviderBlock from './ProviderBlock';
+import AvatarUploadBtn from './AvatarUploadBtn';
 
 const Dashboard = ({ onSignOut }) => {
   const { profile } = useProfile();
@@ -39,6 +40,7 @@ const Dashboard = ({ onSignOut }) => {
           label={<h6 className="mb-2">Nickname</h6>}
         />
       </Drawer.Body>
+      <AvatarUploadBtn />
 
       <Drawer.Footer>
         <Button block color="red" onClick={onSignOut}>
