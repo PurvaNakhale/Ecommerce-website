@@ -39,8 +39,8 @@ const Dashboard = ({ onSignOut }) => {
           onSave={onSave}
           label={<h6 className="mb-2">Nickname</h6>}
         />
+        <AvatarUploadBtn />
       </Drawer.Body>
-      <AvatarUploadBtn />
 
       <Drawer.Footer>
         <Button block color="red" onClick={onSignOut}>
